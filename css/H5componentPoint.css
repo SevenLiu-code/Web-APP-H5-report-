@@ -1,0 +1,25 @@
+/* 散点图表组件对象*/
+.h5_componentpoint .point {
+	display: block;
+	position: absolute;
+	border-radius: 50%;
+	opacity: 0;
+}
+.h5_componentpoint .point .name {
+	width: 100%;
+	height: 30px;
+	margin-top: -15px;
+	color: #f1f1f1;
+	text-align: center;
+	position: absolute;
+	top: 50%;	
+}
+.h5_componentpoint .point .per {
+	font-size: 18px;
+}
+.h5_componentpoint_load .point{
+	opacity: 1;
+}
+.h5_componentpoint_leave .point{
+	opacity: 0;
+}

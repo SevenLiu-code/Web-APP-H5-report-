@@ -1,0 +1,8 @@
+.h5_page {
+	width: 100%;
+	height: 100%;
+	background-color: #ddd;
+	background-size: 100%;
+	background-position: no-repeat;
+	position: relative;
+}

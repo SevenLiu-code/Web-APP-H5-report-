@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+	<title>基于图文组件对象</title>
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="js/H5componentBase.js"></script>
+	<script type="text/javascript" src="js/H5componentPolyline.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/H5componentBase.css">
+	<link rel="stylesheet" type="text/css" href="css/H5componentPolyline.css">
+	<style>
+	body {
+		width: 100%;
+		height: 100%;
+		padding: 0;
+		margin: 0;
+		background-color: #000;
+		font-size: 12px;
+	}
+	 #iphone {
+		width: 340px;
+		height: 540px;
+		background-color: #fff;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		margin: -270px 0 0 -170px;
+		 }
+	</style>
+</head>
+<body>
+	<div id="iphone">
+		<!-- 用于开发测试componentBase对象 （基本的图文组件）-->
+	</div>
+	<script>
+		var cfg={
+			type: "Polyline",
+			text: "",
+			width: 520,
+			height: 400,
+			css: {
+				"top":0,
+				"opacity":0
+			},
+			data:[
+					["AA",.2,"#ff7676"],["BB",.3],["CC",.26],["DD",.5],["EE",.32]
+				],
+			animatIn:{"top":80,"opacity": 1},
+			animatOut:{"top":0,"opacity": 0},
+			center:true
+		}
+		
+		var H5=new H5componentPolyline("Polyline", cfg );
+		$("#iphone").append(H5);
+
+		var load=true;
+		$(function(){
+			$(".h5_component").trigger("onLoad");
+			load=!load;
+			$("body").click(function(){
+				load=!load;
+				$(".h5_component").trigger(load ? "onLeave":"onLoad");
+			});
+		});		
+	</script>
+</body>
+</html>

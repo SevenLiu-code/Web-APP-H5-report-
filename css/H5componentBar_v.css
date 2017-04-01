@@ -1,0 +1,63 @@
+
+.h5_component {
+	position: absolute;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	transition:all linear .5s;
+}
+.h5_componentbar_v .line {
+	position: relative;
+	margin: 0 10px;
+	width: 30px;
+	height: 100%;
+	float: left;
+}
+.h5_componentbar_v .per{
+	width: 100%;
+	position: absolute;
+	left: 0;
+	text-align: center;
+	opacity: 0;
+	transition:all linear 1s 2s;
+}
+.h5_componentbar_v .rate {
+	width: 60%;
+	position: absolute;
+	bottom: 6px;
+	left: 20%;
+	border-radius: 3px;
+}
+.h5_componentbar_v .bg {
+	transition:all linear 1s 1s;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background-color: #ddd;
+	width: 100%;
+	height: 0%;
+	border-radius: 3px;
+}
+.h5_componentbar_v .name {
+	padding: 0 3%;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 100%;
+	text-align: center;
+	font-size: 10px;
+	word-wrap:break-word;
+}
+.h5_componentbar_v_load .per {
+	opacity: 1;
+}
+.h5_componentbar_v_leave .per {
+	opacity: 0;
+	transition:all linear .5s;
+}
+.h5_componentbar_v_load .bg{
+	height: 100%;
+}
+.h5_componentbar_v_leave .bg {
+	height: 0%;
+	transition:all linear .5s;
+}

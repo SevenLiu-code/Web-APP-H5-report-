@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>组件方式开发 Web App全站 </title>
+	<style>	
+	html,body,div {
+		padding: 0;
+		margin: 0;
+	}
+	.page {overflow: hidden;}
+	 .component {
+	 	width: 50%;
+	 	height: 500px;
+	 	background-color: red;
+	 	border: 1px solid orange;
+	 	margin-top: 50px;
+	 	display: none;
+	 }
+	</style>
+</head>
+<body>
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/jquery.fullPage.min.js"></script>
+	<div id="H5">
+		<div id="page1" class="section page">
+			<div class="component">
+				1
+			</div>
+		</div>
+		<div id="page2" class="section page">
+			<div class="component">
+				2
+			</div>
+		</div>
+		<div id="page3" class="section page">
+			<div class="component">
+				3
+			</div>
+		</div>
+	</div>
+	<script>
+	 $(function(){
+	 	$("#H5").fullpage({
+	 		sectionsColor:['green','orange','pink'],
+	 		onLeave: function(index, nextIndex, direction){
+	 			$("#H5").find(".page").eq(index-1).trigger("onLeave");
+	 			//$("#H5").find(".page").eq(index-1).find(".component").trigger("onLeave");
+	 		},
+	 		afterLoad: function(anchors, index){
+	 			$("#H5").find(".page").eq(index-1).trigger("onLoad");
+	 			//$("#H5").find(".page").eq(index-1).find(".component").trigger("onLoad");
+	 		}
+	 	});
+	 	
+ 		$(".page").on("onLeave",function(){
+ 			console.log($(this).attr("id")+'==>>'+'onLeave');
+ 			$(this).find(".component").triggerHandler("onLeave");//事件不会冒泡
+
+ 		});
+ 		$(".page").on("onLoad",function(){
+ 			console.log($(this).attr("id")+'==>>'+'onLoad')
+ 			$(this).find(".component").triggerHandler("onLoad");//事件不会冒泡
+ 		});
+ 		$(".component").on("onLoad",function(){
+ 			$(this).fadeIn(1000);
+ 		});
+ 		$(".component").on("onLeave",function(){
+ 			$(this).fadeOut(1000);
+ 		})
+	 })
+	</script>
+</body>
+</html>

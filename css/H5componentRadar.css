@@ -1,0 +1,24 @@
+/*折线图组件样式*/
+.h5_componentRadar {
+	transition: all 1s;
+}
+
+.h5_componentRadar canvas {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: transparent;
+}
+.h5_componentRadar .text {
+	opacity: 0;
+	height: 10px;
+	position: absolute;
+	text-align: center;
+	font-size: 10px;
+}
+
+.h5_componentRadar_leave  {
+	transition: all .5s 2s;
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+	<title>散点图组件</title>
+	<link rel="stylesheet" type="text/css" href="css/H5componentBar_v.css">
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="js/H5componentBase.js"></script>
+	<!--  柱图表组件对象 -->
+	<script type="text/javascript" src="js/H5componentBar.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/H5componentBar.css">
+	<script type="text/javascript" src="js/H5componentBar_v2.js"></script>
+	<style>
+	div {
+		padding: 0;
+		margin: 0;
+	}
+	body {
+		width: 100%;
+		height: 100%;
+		padding: 0;
+		margin: 0;
+		background-color: #000;
+		font-size: 12px;
+	}
+	 #iphone {
+		width: 340px;
+		height: 540px;
+		background-color: #fff;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		margin: -270px 0 0 -170px;
+		 }
+	</style>	 
+</head>
+<body>
+	<div id="iphone">
+		
+	</div>
+	<script>
+		var cfg={
+			type: "Bar_v",
+			text: "",
+			width: 500,
+			height: 600,
+			data:[
+				["HTML/CSS",.95,"#ff7676"],
+				["javascript",.25],
+				["HTML5",.12],
+				["CSS3",.13],
+				["Bootstrap",.06],
+				["React.js",.24]
+			],
+			css: {
+				"top": 100,"opacity":0
+			},
+			animatIn:{"top":200,"opacity":1},
+			animatOut:{"top":100,"opacity":0},
+			center:true
+		};
+		var H5=new H5componentBar_v2("myBar_v2", cfg );
+		$("#iphone").append(H5);
+
+		var load=true;
+		$(function(){
+			$(".h5_componentBar_v").trigger("onLoad");
+			load=!load;
+			$("body").click(function(){
+				load=!load;
+				$(".h5_component").trigger(load ? "onLeave":"onLoad");
+			});
+		});		
+	</script>
+</body>
+</html>
